@@ -7,6 +7,7 @@ import { StepTitle } from './StepTitle';
 import { YouChose } from './YouChose';
 import { CustomButton } from './buttons/CustomButton';
 import { TextInformation } from './TextInformation';
+import useWindowDimensions from '../../hooks/useResize';
 
 
 interface Props {
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export const FirstStep: FC<Props> = ({ onNextClick }) => {
-    const windowWidth = window.innerWidth
+    const { width } = useWindowDimensions()
     const [startDate, setStartDate] = useState<any>()
 
     const { control } = useFormContext()
@@ -28,7 +29,7 @@ export const FirstStep: FC<Props> = ({ onNextClick }) => {
     return (
         <section className='max-w-[855px] mx-auto min-h-[533px]'>
             <StepTitle>
-                {windowWidth > 768 ? "Select a day and time" : "Book a day and time"}
+                {width!! > 768 ? "Select a day and time" : "Book a day and time"}
             </StepTitle>
             <TextInformation />
             <div className='relative'>
