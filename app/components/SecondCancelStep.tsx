@@ -14,6 +14,9 @@ interface Props {
 
 export const SecondCancelStep: FC<Props> = ({ onNextClick, onPrevClick, onHandleSubmit }) => {
     const { watch } = useFormContext()
+    const shiftCancel = watch('shiftCancel')
+
+    console.log(shiftCancel)
 
 
     return (
@@ -21,7 +24,7 @@ export const SecondCancelStep: FC<Props> = ({ onNextClick, onPrevClick, onHandle
             <div className=''>
                 <div className="">
                     <StepTitle>
-                        Your reservationsi
+                        Your reservations
                     </StepTitle>
                     <div className="grid justify-items-center">
                         <YourReservations />
@@ -30,7 +33,7 @@ export const SecondCancelStep: FC<Props> = ({ onNextClick, onPrevClick, onHandle
                         <CustomButton
                             onClick={onNextClick}
                             width="w-[356px]"
-                        /* disabled={name?.length && lastName?.length && email?.length ? false : true} */
+                        disabled={shiftCancel ? false : true}
                         >
                             CANCEL
                         </CustomButton>

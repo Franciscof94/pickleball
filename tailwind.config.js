@@ -21,6 +21,7 @@ module.exports = {
       white: "#FFFFFF",
       green: "#AECA00",
       aqua: "#00ccd9",
+      "aqua-opacity": "#CCF5F7",
       "dirty-white": "#F8F8F8",
     },
     spacing: {
