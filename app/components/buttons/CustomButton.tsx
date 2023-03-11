@@ -5,9 +5,10 @@ import { outfit } from "../../home-page"
 interface Props {
     children: React.ReactNode,
     width: string,
-    onClick?: () => void
+    onClick?: (data?: any) => void,
+    disabled?: boolean,
 }
 
-export const CustomButton: FC<Props> = ({ children, width, onClick }) => {
-    return <button onClick={onClick} className={`bg-green rounded-full text-white text-[20px] font-bold h-7 ${width} ${outfit.className}`}>{children}</button>
+export const CustomButton: FC<Props> = ({ children, width, onClick, disabled }) => {
+    return <button disabled={disabled} onClick={onClick} className={`bg-green rounded-full text-white text-[20px] font-bold h-7 ${width} ${outfit.className}`}>{children}</button>
 }

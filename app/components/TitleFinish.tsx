@@ -8,6 +8,6 @@ interface Props {
 
 export const TitleFinish:FC<Props> = ({ children }) => {
     return (
-        <h2 className={`text-6 text-white leading-7 text-center ${audiowide.className}`}>{children}</h2>
+        <h2 className={`m-0 text-6 text-white leading-7 text-center ${audiowide.className}`}>{children}</h2>
     )
 }

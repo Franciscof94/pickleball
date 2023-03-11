@@ -1,22 +1,22 @@
-import { FC, useRef, useEffect } from 'react';
-import { AnimatePresence, motion } from "framer-motion"
-import { Carousel } from "react-bootstrap"
-import "bootstrap/dist/css/bootstrap.min.css";
+import { FC, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Carousel } from 'react-bootstrap';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import useWindowDimensions from '../../hooks/useResize';
-import { selectUi, setNextStep, setStepNumber } from "../../store/features/uiSlice";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { FirstStep, SecondStep, ThirdStep } from './';
-
+import { selectUi, setStepNumber } from '../../store/features/uiSlice';
+import { FirstCancelStep } from './FirstCancelStep';
+import { SecondCancelStep } from './SecondCancelStep';
+import { ThirdCancelStep } from './ThirdCancelStep';
 
 interface Props {
     onHandleSubmit: (data: any) => void
 }
 
-export const StepContainer: FC<Props> = ({ onHandleSubmit }) => {
-    const ref = useRef<any>(null);
 
-    const { stepNumber } = useAppSelector(selectUi)
+export const StepCancelContainer: FC<Props> = ({ onHandleSubmit }) => {
     const dispatch = useAppDispatch()
+    const ref = useRef<any>(null);
+    const { stepNumber } = useAppSelector(selectUi)
     const { width } = useWindowDimensions()
 
     const handleSelect = (selectedIndex: number) => {
@@ -30,7 +30,6 @@ export const StepContainer: FC<Props> = ({ onHandleSubmit }) => {
         ref.current.next();
     };
 
-  
     return (
         <AnimatePresence>
             <Carousel
@@ -48,7 +47,7 @@ export const StepContainer: FC<Props> = ({ onHandleSubmit }) => {
                         exit={{ y: -1, opacity: 0 }}
                         transition={{ duration: 2.5 }}
                     >
-                        <FirstStep onNextClick={onNextClick} />
+                        <FirstCancelStep onNextClick={onNextClick} />
                     </motion.div>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -59,7 +58,7 @@ export const StepContainer: FC<Props> = ({ onHandleSubmit }) => {
                         exit={{ y: -1, opacity: 0 }}
                         transition={{ duration: 2.5 }}
                     >
-                        <SecondStep onNextClick={onNextClick} onPrevClick={onPrevClick} onHandleSubmit={onHandleSubmit} />
+                        <SecondCancelStep onNextClick={onNextClick} onPrevClick={onPrevClick} onHandleSubmit={onHandleSubmit} />
                     </motion.div>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -70,7 +69,7 @@ export const StepContainer: FC<Props> = ({ onHandleSubmit }) => {
                         exit={{ y: -1, opacity: 0 }}
                         transition={{ duration: 2.5 }}
                     >
-                        <ThirdStep onPrevClick={onPrevClick} />
+                        <ThirdCancelStep onPrevClick={onPrevClick} />
                     </motion.div>
                 </Carousel.Item>
             </Carousel>

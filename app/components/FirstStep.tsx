@@ -18,7 +18,8 @@ export const FirstStep: FC<Props> = ({ onNextClick }) => {
     const { width } = useWindowDimensions()
     const [startDate, setStartDate] = useState<any>()
 
-    const { control } = useFormContext()
+    const { control, watch } = useFormContext()
+    const dateAndTime = watch('dateAndTime')
 
     const filterPassedTime = (time: any) => {
         const currentDate = new Date();
@@ -63,7 +64,7 @@ export const FirstStep: FC<Props> = ({ onNextClick }) => {
                             Tuesday, Oct 4 at 10:00 hs
                         </YouChose>
                     </div>
-                    <CustomButton width='w-[356px]' onClick={onNextClick}>
+                    <CustomButton width='w-[356px]' onClick={onNextClick} disabled={dateAndTime ? false : true}>
                         NEXT
                     </CustomButton>
                 </div>

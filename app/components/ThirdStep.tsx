@@ -13,15 +13,15 @@ interface Props {
 export const ThirdStep: FC<Props> = ({ onPrevClick }) => {
     return (
         <div className="max-w-[855px] mx-auto min-h-[533px] bg-blue">
-            <div className="grid justify-items-center mt-9">
+            <div className="grid justify-items-center pt-9">
                 <TitleFinish>Awesome! your spot is reserved. </TitleFinish>
-                <div className="mt-8 mb-6">
+                <div className="pt-8 pb-6">
                     <Image src={Tick} width={105} alt="tick" />
                 </div>
                 <YourBooking text="Thanks! I´m looking forward to meet you on the court on">
                     Tuesday, Oct 4 at 10:00 hs.
                 </YourBooking>
-                <div className="mt-5 mb-8">
+                <div className="pt-5 pb-8">
                     <TextConfirmation>
                     I sent a confirmation email with your booking detail <span className="font-bold">janesloan@hotmail.com</span>
                     </TextConfirmation>

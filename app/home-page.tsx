@@ -3,8 +3,7 @@ import { Audiowide, Outfit } from '@next/font/google'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from 'react-hook-form'
 import { Banner, StepContainer } from './components'
-import { ShiftSchema } from '../validations';
-import { useEffect } from 'react';
+import { BookingSchema } from '../validations';
 import { useAppSelector } from '../store/hooks';
 import { selectUi } from '../store/features/uiSlice';
 
@@ -20,28 +19,34 @@ export const outfit = Outfit({
 
 
 export default function Page() {
-  const { stepNumber } = useAppSelector(selectUi)
+  const { stepNumber, nextStep } = useAppSelector(selectUi)
   const methods = useForm({
-    resolver: yupResolver(ShiftSchema),
+    resolver: yupResolver(BookingSchema),
     mode: "all",
   });
 
-  const onSubmit = (data: any) => {
 
+
+  const onSubmit = (data: any) => {
+    console.log("eSTA ES la data",data)
+    try {
+      nextStep
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  useEffect(() => {
-    document.body.style.backgroundColor = stepNumber === 2 ? "#005C68" : "#F8F8F8"
-  }, [stepNumber])
 
   return (
     <FormProvider {...methods}>
+      <form className={`${stepNumber === 2 ? "bg-blue" : "bg-dirty-white"}`} onSubmit={methods.handleSubmit(onSubmit)}>
       <section >
         <div className="text-3xl font-bold underline text-red-500">
           <Banner />
-          <StepContainer />
+          <StepContainer onHandleSubmit={onSubmit} />
         </div>
       </section>
+      </form>
     </FormProvider>
   )
 }

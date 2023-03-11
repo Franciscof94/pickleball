@@ -1,1 +1,1 @@
-export * from './ShiftSchema'
+export * from './BookingSchema'
