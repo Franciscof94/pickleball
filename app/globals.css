@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Outfit:wght@200;300;400;500;600&display=swap');
 
 
+a {
+    text-decoration: none !important;
+}
+
 /*------------------------------------CALENDAR STYLES------------------------------------*/
 
 
@@ -267,6 +271,18 @@ input[type="submit"i]:disabled {
 }
 
 
+.form-check-input:checked {
+    background-color: #00ccd9 !important;
+    border-color: #00ccd9 !important;
+    font-size: 21px !important;
+    cursor: pointer !important;
+  }
+  
+  .form-check-input[type="radio"] {
+    border-radius: 50%;
+    font-size: 21px !important;
+    cursor: pointer !important;
+  }
 /* MEDIA QUERY */
 
 

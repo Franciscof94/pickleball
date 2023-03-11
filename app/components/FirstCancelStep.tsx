@@ -15,10 +15,13 @@ export const FirstCancelStep: FC<Props> = ({ onNextClick }) => {
     const name = watch('name')
     const lastName = watch('lastName')
     const email = watch('email')
+
+    console.log(name, lastName, email)
+
     return (
         <section className='max-w-[855px] mx-auto min-h-[533px]'>
             <div className=''>
-                <div className="">
+                
                     <StepTitle>
                         Contact information
                         <TextSecondStep />
@@ -61,7 +64,6 @@ export const FirstCancelStep: FC<Props> = ({ onNextClick }) => {
 
                         </div>
                     </div>
-                </div>
             </div>
         </section>
     )

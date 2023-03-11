@@ -27,7 +27,7 @@ export default function RootLayout({
                     <LineNavbar />
                     {children}
                     <Footer />
-                    <MobileMenu isOpenMenu={isOpenMenu} />
+                    <MobileMenu isOpenMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
                 </Providers>
             </body>
         </html>

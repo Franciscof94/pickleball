@@ -1,15 +1,32 @@
 import Link from "next/link"
-import { FC } from "react"
+import { FC, useEffect, useRef } from "react"
 import { audiowide } from "../home-page"
 
 
 interface Props {
-    isOpenMenu: boolean
+    isOpenMenu: boolean,
+    setIsOpenMenu: (value: boolean) => void
 }
 
-export const MobileMenu: FC<Props> = ({ isOpenMenu }) => {
+export const MobileMenu: FC<Props> = ({ isOpenMenu, setIsOpenMenu }) => {
+    const menuRef = useRef<any>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: any) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsOpenMenu(false);
+            }
+        }
+
+        window.addEventListener("click", handleClickOutside, true);
+        return () => {
+            window.removeEventListener("click", handleClickOutside, true);
+        };
+    }, [menuRef]);
+
     return (
         <ul
+            ref={menuRef}
             className={`block lg:hidden 
                     md:hidden items-center 
                     transition-all ease-in-out 

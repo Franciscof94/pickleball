@@ -1,8 +1,6 @@
 import { FC } from "react"
 import { useFormContext } from 'react-hook-form';
-import { outfit } from "../home-page"
 import { CustomButton } from "./buttons/CustomButton"
-import { CustomInput } from "./inputs/CustomInput"
 import { StepTitle, YourReservations } from "./"
 
 
@@ -15,8 +13,6 @@ interface Props {
 export const SecondCancelStep: FC<Props> = ({ onNextClick, onPrevClick, onHandleSubmit }) => {
     const { watch } = useFormContext()
     const shiftCancel = watch('shiftCancel')
-
-    console.log(shiftCancel)
 
 
     return (

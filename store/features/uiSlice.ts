@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 export type uiState = {
-  stepNumber: number | null,
+  stepNumber: number,
   nextStep: () => void
 };
 

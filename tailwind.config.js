@@ -56,9 +56,6 @@ module.exports = {
       26: "200px",
     },
   },
-  corePlugins: {
-    textDecoration: false,
-  },
   variants: {
     extend: {},
   },
