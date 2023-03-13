@@ -22,7 +22,7 @@ export const SecondCancelStep: FC<Props> = ({ onNextClick, onPrevClick, onHandle
                     <StepTitle>
                         Your reservations
                     </StepTitle>
-                    <div className="grid justify-items-center">
+                    <div className="grid justify-items-center pt-6">
                         <YourReservations />
                     </div>
                     <div className="flex flex-column items-center mt-[242px]">
