@@ -25,11 +25,11 @@ export const SecondCancelStep: FC<Props> = ({ onNextClick, onPrevClick, onHandle
                     <div className="grid justify-items-center">
                         <YourReservations />
                     </div>
-                    <div className="flex flex-column items-center mt-[118px]">
+                    <div className="flex flex-column items-center mt-[242px]">
                         <CustomButton
                             onClick={onNextClick}
                             width="w-[356px]"
-                        disabled={shiftCancel ? false : true}
+                            disabled={shiftCancel ? false : true}
                         >
                             CANCEL
                         </CustomButton>

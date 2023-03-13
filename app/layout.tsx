@@ -13,7 +13,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     const [isOpenMenu, setIsOpenMenu] = useState(false)
-
+    console.log(isOpenMenu)
 
     const openMenuMobile = () => {
         setIsOpenMenu(!isOpenMenu)

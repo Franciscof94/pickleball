@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { FC, useEffect, useRef } from "react"
+import { setStepNumber } from "../../store/features/uiSlice"
+import { useAppDispatch } from "../../store/hooks"
 import { audiowide } from "../home-page"
 
 
@@ -10,6 +12,7 @@ interface Props {
 
 export const MobileMenu: FC<Props> = ({ isOpenMenu, setIsOpenMenu }) => {
     const menuRef = useRef<any>(null);
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         const handleClickOutside = (event: any) => {
@@ -38,7 +41,10 @@ export const MobileMenu: FC<Props> = ({ isOpenMenu, setIsOpenMenu }) => {
                     ${audiowide.className}`}
         >
             <li className="py-1">
-                <Link href="#" className="text-blue text-sm text-base ">Book a lesson</Link>
+                <Link href="/" className="text-blue text-sm text-base " onClick={() => {
+               
+                    setIsOpenMenu(false)
+                }}>Book a lesson</Link>
             </li>
             <li className="py-1">
                 <Link href="#" className="text-blue text-sm text-base">About me</Link>
@@ -47,7 +53,10 @@ export const MobileMenu: FC<Props> = ({ isOpenMenu, setIsOpenMenu }) => {
                 <Link href="#" className="text-blue text-sm text-base">Blog</Link>
             </li>
             <li className="py-1">
-                <Link href="#" className="text-blue text-sm text-base">Cancel a booking</Link>
+                <Link href="/cancel-booking" className="text-blue text-sm text-base" onClick={() => {
+            
+                    setIsOpenMenu(false)
+                }}>Cancel a booking</Link>
             </li>
             <li className="py-1">
                 <Link href="#" className="text-blue text-sm text-base">FAQs</Link>

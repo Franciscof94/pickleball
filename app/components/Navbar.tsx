@@ -20,7 +20,7 @@ export const Navbar: FC<Props> = ({ openMenuMobile }) => {
                 <Menu />
             </div>
             <div className="h-11 flex justify-end items-center pr-3 ml-auto cursor-pointer lg:hidden md:hidden " onClick={openMenuMobile}>
-                <HiMenuAlt3 size={24} color={stepNumber === 2 ? "white" : "blue-text"} />
+                <HiMenuAlt3 size={24} color={stepNumber === 2 ? "#FFFFFF" : "#003941"} />
             </div>
         </nav>
     )
